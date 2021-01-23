@@ -1,6 +1,6 @@
 ##Example game = Snake game
 
-#Here we will be filling background
+#Here we will be drawing 
 
 
 import pygame
@@ -29,6 +29,14 @@ while not gameExit:
 
 
 		display.fill(BLUE)
+
+		#We can draw a rect as follows
+		# pygame.draw.rect(surface to draw on, color, [top left x, top left y, width, height])
+		# Coordinates start from 0,0 in the top left
+		pygame.draw.rect(display,RED,[475,200,50,300])
+
+		#We can also draw a rectangle using fill
+		display.fill(GREEN,rect=[475,200,50,50])
 		pygame.display.update()
 		
 
