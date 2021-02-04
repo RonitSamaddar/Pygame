@@ -1,6 +1,6 @@
 ##Example game = Snake game
 
-#Here we will be drawing rectangles
+#Here we will be moving rectangles once per arrow key press
 
 
 import pygame
@@ -21,22 +21,31 @@ pygame.display.set_caption("Slither")
 
 pygame.display.update()
 
+
+#Starting coordinates
+lead_x=200
+lead_y=200
+
 gameExit=False
 while not gameExit:
 	for event in pygame.event.get():
 		if event.type==pygame.QUIT:
 			gameExit=True
+		if event.type==pygame.KEYDOWN:
+			if event.key==pygame.K_LEFT:
+				lead_x-=10
+			if event.key==pygame.K_RIGHT:
+				lead_x+=10
+			if event.key==pygame.K_UP:
+				lead_y-=10
+			if event.key==pygame.K_DOWN:
+				lead_y+=10
 
 
 		display.fill(BLUE)
 
-		#We can draw a rect as follows
-		# pygame.draw.rect(surface to draw on, color, [top left x, top left y, width, height])
-		# Coordinates start from 0,0 in the top left
-		pygame.draw.rect(display,RED,[475,200,50,300])
-
-		#We can also draw a rectangle using fill
-		display.fill(GREEN,rect=[475,200,50,50])
+		
+		pygame.draw.rect(display,RED,[lead_x,lead_y,50,50])
 		pygame.display.update()
 		
 
